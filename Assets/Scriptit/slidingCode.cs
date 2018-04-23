@@ -19,16 +19,16 @@ public class slidingCode : MonoBehaviour {
             switch (DirectionToSlide)
             {
                 case directionToSlideTo.up:
-                    player.transform.Translate(Vector3.up * 2*Time.deltaTime);
+                    player.transform.Translate(Vector3.up * 4*Time.deltaTime);
                     break;
                 case directionToSlideTo.down:
-                    player.transform.Translate(Vector3.down * 2*Time.deltaTime);
+                    player.transform.Translate(Vector3.down * 4*Time.deltaTime);
                     break;
                 case directionToSlideTo.left:
-                    player.transform.Translate(Vector3.left * 2*Time.deltaTime);
+                    player.transform.Translate(Vector3.left * 4*Time.deltaTime);
                     break;
                 case directionToSlideTo.right:
-                    player.transform.Translate(Vector3.right * 2*Time.deltaTime);
+                    player.transform.Translate(Vector3.right * 4*Time.deltaTime);
                     break;
             }
         }
