@@ -44,7 +44,6 @@ public class quest : MonoBehaviour
                 {
                     if (gm.GetComponent<gamemanagement>().playersBackpack[chokocream].name == "Chocolate" || gm.GetComponent<gamemanagement>().playersBackpack[chokocream].name == "Icecream")
                     {
-                        Debug.Log("choko cream thing");
                         //----------------------------------------
                         if (gm.GetComponent<gamemanagement>().playersBackpack[chokocream].name == "Chocolate") { chocolat = true; }
                         if (gm.GetComponent<gamemanagement>().playersBackpack[chokocream].name == "Icecream") { icecrm = true; }
@@ -106,7 +105,6 @@ public class quest : MonoBehaviour
         {
             if (questNameCheck == gm.GetComponent<gamemanagement>().quests[r].questName)//from quests list
             {
-                Debug.Log(r);
                 Debug.Log(gm.GetComponent<gamemanagement>().quests[r].questName);
                 for (int rr = 0; rr < gm.GetComponent<gamemanagement>().questLogTexts.Length; rr++)
                 {

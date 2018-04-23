@@ -36,6 +36,41 @@ public class playerButtonControl : MonoBehaviour {
         escaping();
         bb();
     }
+
+    public void useItems()
+    {
+        /*
+        for (int useitemlooper = 0; useitemlooper < gm.GetComponent<gamemanagement>().AllItems.Length; useitemlooper++)
+        {
+            if (gm.GetComponent<gamemanagement>().chosenItem.name == gm.GetComponent<gamemanagement>().AllItems[useitemlooper].name)
+            {
+
+            }
+        }*/
+        if (gm.GetComponent<gamemanagement>().chosenItem.name == "escape rope") { this.GetComponent<playerAttacking>().playerHealth = 0; }
+        if (gm.GetComponent<gamemanagement>().chosenItem.name == "Baguette") { this.GetComponent<playerAttacking>().playerHealth = this.GetComponent<playerAttacking>().playerHealth + 25; }
+        if (gm.GetComponent<gamemanagement>().chosenItem.name == "BaguetteDuFromage") { this.GetComponent<playerAttacking>().playerHealth = this.GetComponent<playerAttacking>().playerHealth + 40; }
+        if (gm.GetComponent<gamemanagement>().chosenItem.name == "BaguetteDuFromageEtVin") { this.GetComponent<playerAttacking>().playerHealth = this.GetComponent<playerAttacking>().playerHealth + 65; }
+        //EventSystem.current.currentSelectedGameObject.GetComponentInChildren(Text).text = "";
+
+        for (int useitemlooper = 0; useitemlooper < gm.GetComponent<gamemanagement>().playersBackpack.Length; useitemlooper++)
+        {
+            if (gm.GetComponent<gamemanagement>().chosenItem.name == gm.GetComponent<gamemanagement>().playersBackpack[useitemlooper].name)
+            {
+                gm.GetComponent<gamemanagement>().playersBackpack[useitemlooper].name = "";
+                return;
+            }
+        }
+        for (int useitemlooper2 = 0; useitemlooper2 < gm.GetComponent<gamemanagement>().playersBackpack.Length; useitemlooper2++)
+        {
+            if (gm.GetComponent<gamemanagement>().playersBackpack[useitemlooper2].name == "")
+            {
+                gm.GetComponent<gamemanagement>().reppuText[useitemlooper2].GetComponentInChildren<Text>().text = "";
+            }
+        }
+        gm.GetComponent<gamemanagement>().chosenItem = null;
+    }
+
     public void destroyRightEnemySpawner()
     {
         for(int g = 0; g < enemyPortals.Length;g++)
@@ -292,7 +327,6 @@ public class playerButtonControl : MonoBehaviour {
             {
                 if (EventSystem.current.currentSelectedGameObject.name == gm.GetComponent<gamemanagement>().AllMonsters[g].name && gm.GetComponent<gamemanagement>().AllMonsters[g].allowEvolution==true)
                 {
-                    Debug.Log(EventSystem.current.currentSelectedGameObject.name);
                     //gm.GetComponent<gamemanagement>().Pet = gm.GetComponent<gamemanagement>().AllMonsters[g]; //this should work, but it doesnt workaround under
                     gm.GetComponent<gamemanagement>().CurrentPetInt = g+1;
                     gm.GetComponent<gamemanagement>().petUIimage.sprite = gm.GetComponent<gamemanagement>().AllMonsters[g].petVisual;

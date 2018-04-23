@@ -99,14 +99,12 @@ public class gamemanagement : MonoBehaviour {
 	}
     public void questInfoOperation()
     {
-        Debug.Log("quest operation");
         blockToMoveUp.GetComponent<RectTransform>().anchoredPosition = startPosition;
         blockToMoveUp.GetComponentInChildren<Text>().text = "Quest advanced";
         StartCoroutine(LerpObject());
     }
     public void evolutionInfoOperation()
     {
-        Debug.Log("evolution operation");
         blockToMoveUp.GetComponent<RectTransform>().anchoredPosition = startPosition;
         blockToMoveUp.GetComponentInChildren<Text>().text = "New evolution achieved";
         StartCoroutine(LerpObject());

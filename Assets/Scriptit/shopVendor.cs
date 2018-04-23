@@ -63,7 +63,7 @@ public class shopVendor : MonoBehaviour
         sellSCreenImages();
 
             //itemToSellINT = 10;
-            Debug.Log("SOLD A THING");
+            //Debug.Log("SOLD A THING");
 
         for (int y = 0; y < gm.GetComponent<gamemanagement>().AllItems.Length; y++)
         {
@@ -88,7 +88,7 @@ public class shopVendor : MonoBehaviour
                 
                 y = gm.GetComponent<gamemanagement>().AllItems.Length;
                 itemToSellINT = 10;
-                Debug.Log("SOLD A THING");
+                //Debug.Log("SOLD A THING");
             }
             //Debug.Log("loop times "+y);
         }
@@ -145,7 +145,7 @@ public class shopVendor : MonoBehaviour
                                 }
                                 else if (allowBuy == true && gm.GetComponent<gamemanagement>().money < buyButtons[p].cost)
                                 {
-                                    Debug.Log("NOT ENOUGH MONEY");
+                                    //Debug.Log("NOT ENOUGH MONEY");
                                     shopCanvas.SetActive(false);
                                     Time.timeScale = 1;
                                     return;

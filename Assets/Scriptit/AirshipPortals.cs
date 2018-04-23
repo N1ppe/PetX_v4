@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AirshipPortals : MonoBehaviour {
 
-    public GameObject player, pet;
+    public GameObject player, pet,questColObject;
     public GameObject TeleportLocation;
 
     void Start()
@@ -17,8 +17,11 @@ public class AirshipPortals : MonoBehaviour {
     {
         if (other.gameObject.tag == "Player")
         {
-            player.transform.position = TeleportLocation.transform.position;
-            pet.transform.position = TeleportLocation.transform.position;
+            if(questColObject.GetComponent<quest>().questName == missionNames.Thunderstorm && questColObject.GetComponent<quest>().startedQuest == true)
+            {
+                player.transform.position = TeleportLocation.transform.position;
+                pet.transform.position = TeleportLocation.transform.position;
+            }
         }
     }
 }
