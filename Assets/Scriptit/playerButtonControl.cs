@@ -47,28 +47,36 @@ public class playerButtonControl : MonoBehaviour {
 
             }
         }*/
-        if (gm.GetComponent<gamemanagement>().chosenItem.name == "escape rope") { this.GetComponent<playerAttacking>().playerHealth = 0; }
-        if (gm.GetComponent<gamemanagement>().chosenItem.name == "Baguette") { this.GetComponent<playerAttacking>().playerHealth = this.GetComponent<playerAttacking>().playerHealth + 25; }
-        if (gm.GetComponent<gamemanagement>().chosenItem.name == "BaguetteDuFromage") { this.GetComponent<playerAttacking>().playerHealth = this.GetComponent<playerAttacking>().playerHealth + 40; }
-        if (gm.GetComponent<gamemanagement>().chosenItem.name == "BaguetteDuFromageEtVin") { this.GetComponent<playerAttacking>().playerHealth = this.GetComponent<playerAttacking>().playerHealth + 65; }
-        //EventSystem.current.currentSelectedGameObject.GetComponentInChildren(Text).text = "";
+        if (gm.GetComponent<gamemanagement>().chosenItem.name == "Goblet" || gm.GetComponent<gamemanagement>().chosenItem.name == "Goblet of water" || gm.GetComponent<gamemanagement>().chosenItem.name == "Flower")
+        {
+            return;
+        }
+        else
+        {
+            if (gm.GetComponent<gamemanagement>().chosenItem.name == "escape rope") { this.GetComponent<playerAttacking>().playerHealth = 0; }
+            if (gm.GetComponent<gamemanagement>().chosenItem.name == "Baguette") { this.GetComponent<playerAttacking>().playerHealth = this.GetComponent<playerAttacking>().playerHealth + 25; }
+            if (gm.GetComponent<gamemanagement>().chosenItem.name == "BaguetteDuFromage") { this.GetComponent<playerAttacking>().playerHealth = this.GetComponent<playerAttacking>().playerHealth + 40; }
+            if (gm.GetComponent<gamemanagement>().chosenItem.name == "BaguetteDuFromageEtVin") { this.GetComponent<playerAttacking>().playerHealth = this.GetComponent<playerAttacking>().playerHealth + 65; }
+            //EventSystem.current.currentSelectedGameObject.GetComponentInChildren(Text).text = "";
 
-        for (int useitemlooper = 0; useitemlooper < gm.GetComponent<gamemanagement>().playersBackpack.Length; useitemlooper++)
-        {
-            if (gm.GetComponent<gamemanagement>().chosenItem.name == gm.GetComponent<gamemanagement>().playersBackpack[useitemlooper].name)
+            for (int useitemlooper = 0; useitemlooper < gm.GetComponent<gamemanagement>().playersBackpack.Length; useitemlooper++)
             {
-                gm.GetComponent<gamemanagement>().playersBackpack[useitemlooper].name = "";
-                return;
+                if (gm.GetComponent<gamemanagement>().chosenItem.name == gm.GetComponent<gamemanagement>().playersBackpack[useitemlooper].name)
+                {
+                    gm.GetComponent<gamemanagement>().playersBackpack[useitemlooper].name = "";
+                    return;
+                }
             }
-        }
-        for (int useitemlooper2 = 0; useitemlooper2 < gm.GetComponent<gamemanagement>().playersBackpack.Length; useitemlooper2++)
-        {
-            if (gm.GetComponent<gamemanagement>().playersBackpack[useitemlooper2].name == "")
+            for (int useitemlooper2 = 0; useitemlooper2 < gm.GetComponent<gamemanagement>().playersBackpack.Length; useitemlooper2++)
             {
-                gm.GetComponent<gamemanagement>().reppuText[useitemlooper2].GetComponentInChildren<Text>().text = "";
+                if (gm.GetComponent<gamemanagement>().playersBackpack[useitemlooper2].name == "")
+                {
+                    gm.GetComponent<gamemanagement>().reppuText[useitemlooper2].GetComponentInChildren<Text>().text = "";
+                }
             }
+            gm.GetComponent<gamemanagement>().chosenItem = null;
         }
-        gm.GetComponent<gamemanagement>().chosenItem = null;
+
     }
 
     public void destroyRightEnemySpawner()

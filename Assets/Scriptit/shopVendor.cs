@@ -70,25 +70,32 @@ public class shopVendor : MonoBehaviour
             //saman niminen item allitems listalta
             if (gm.GetComponent<gamemanagement>().AllItems[y].name == sellButtons[itemToSellINT].itemNameHolder.text)
             {
-                gm.GetComponent<gamemanagement>().money = gm.GetComponent<gamemanagement>().money + sellButtons[itemToSellINT].cost;
-                sellButtons[itemToSellINT].itemNameHolder.text = "";
-                gm.GetComponent<gamemanagement>().playersBackpack[itemToSellINT].name = "";
-                gm.GetComponent<gamemanagement>().playersBackpack[itemToSellINT].description = "";
-                gm.GetComponent<gamemanagement>().playersBackpack[itemToSellINT].itemPropertyInt = 0;
-                gm.GetComponent<gamemanagement>().playersBackpack[itemToSellINT].sellCost = 0;
-                gm.GetComponent<gamemanagement>().playersBackpack[itemToSellINT].itemImage = null;
-                sellSCreenImages();
-                
-                for (int intti = 0; intti < 10; intti++)
+                if(sellButtons[itemToSellINT].itemNameHolder.text == "Goblet" || sellButtons[itemToSellINT].itemNameHolder.text == "Goblet of water" || sellButtons[itemToSellINT].itemNameHolder.text == "Flower")
                 {
-                    sellButtons[intti].itemNameHolder.text = gm.GetComponent<gamemanagement>().playersBackpack[intti].name;
-                    if (gm.GetComponent<gamemanagement>().playersBackpack[intti].name == sellButtons[intti].itemNameHolder.text)
-                    { sellButtons[intti].cost = gm.GetComponent<gamemanagement>().playersBackpack[intti].sellCost; }
+                    return;
                 }
-                
-                y = gm.GetComponent<gamemanagement>().AllItems.Length;
-                itemToSellINT = 10;
-                //Debug.Log("SOLD A THING");
+                else
+                {
+                    gm.GetComponent<gamemanagement>().money = gm.GetComponent<gamemanagement>().money + sellButtons[itemToSellINT].cost;
+                    sellButtons[itemToSellINT].itemNameHolder.text = "";
+                    gm.GetComponent<gamemanagement>().playersBackpack[itemToSellINT].name = "";
+                    gm.GetComponent<gamemanagement>().playersBackpack[itemToSellINT].description = "";
+                    gm.GetComponent<gamemanagement>().playersBackpack[itemToSellINT].itemPropertyInt = 0;
+                    gm.GetComponent<gamemanagement>().playersBackpack[itemToSellINT].sellCost = 0;
+                    gm.GetComponent<gamemanagement>().playersBackpack[itemToSellINT].itemImage = null;
+                    sellSCreenImages();
+
+                    for (int intti = 0; intti < 10; intti++)
+                    {
+                        sellButtons[intti].itemNameHolder.text = gm.GetComponent<gamemanagement>().playersBackpack[intti].name;
+                        if (gm.GetComponent<gamemanagement>().playersBackpack[intti].name == sellButtons[intti].itemNameHolder.text)
+                        { sellButtons[intti].cost = gm.GetComponent<gamemanagement>().playersBackpack[intti].sellCost; }
+                    }
+
+                    y = gm.GetComponent<gamemanagement>().AllItems.Length;
+                    itemToSellINT = 10;
+                    //Debug.Log("SOLD A THING");
+                }
             }
             //Debug.Log("loop times "+y);
         }
@@ -226,8 +233,8 @@ public class shopVendor : MonoBehaviour
                 {
                     case specialShop.NONE:
                         buyButtons[0].itemNameHolder.text = "Baguette";
-                        buyButtons[1].itemNameHolder.text = "";
-                        buyButtons[2].itemNameHolder.text = "";
+                        buyButtons[1].itemNameHolder.text = "BaguetteDuFromage";
+                        buyButtons[2].itemNameHolder.text = "BaguetteDuFromageEtVin";
                         break;
                     case specialShop.choko:
                         buyButtons[0].itemNameHolder.text = "Chocolate";
